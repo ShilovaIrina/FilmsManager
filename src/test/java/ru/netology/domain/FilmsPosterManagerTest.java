@@ -27,45 +27,67 @@ public class FilmsPosterManagerTest {
     public void shouldPosterManagerFilmAddingAndFindAll() {
         FilmsPosterManager manager = new FilmsPosterManager();
 
-        manager.addNewFilm(new FilmData("Бладшот", "боевик"));
-        manager.addNewFilm(new FilmData("Вперёд", "мультфильм"));
-        manager.addNewFilm(new FilmData("Отель «Белград»", "комедия"));
-        manager.addNewFilm(new FilmData("Джентельмены", "боевик"));
-        manager.addNewFilm(new FilmData("Человек-невидимка", "ужасы"));
-        manager.addNewFilm(new FilmData("Тролли. Мировой тур", "мультфильм"));
-        manager.addNewFilm(new FilmData("Номер один", "комедия"));
+        FilmData poster1 = new FilmData("Бладшот", "боевик");
+        FilmData poster2 = new FilmData("Вперёд", "мультфильм");
+        FilmData poster3 = new FilmData("Отель «Белград»", "комедия");
+        FilmData poster4 = new FilmData("Джентельмены", "боевик");
+        FilmData poster5 = new FilmData("Человек-невидимка", "ужасы");
+        FilmData poster6 = new FilmData("Тролли. Мировой тур", "мультфильм");
+        FilmData poster7 = new FilmData("Номер один", "комедия");
 
-        FilmData[] films = manager.findAll();
+        manager.addNewFilm(poster1);
+        manager.addNewFilm(poster2);
+        manager.addNewFilm(poster3);
+        manager.addNewFilm(poster4);
+        manager.addNewFilm(poster5);
+        manager.addNewFilm(poster6);
+        manager.addNewFilm(poster7);
 
-        Assertions.assertEquals(films.length, 7);
+        FilmData[] expected = {poster1, poster2, poster3, poster4, poster5, poster6, poster7};
+        FilmData[] actual = manager.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void checkPosterManagerFilmAddingAndFindLast() {
         FilmsPosterManager manager = new FilmsPosterManager();
 
-        manager.addNewFilm(new FilmData("Бладшот", "боевик"));
-        manager.addNewFilm(new FilmData("Вперёд", "мультфильм"));
-        manager.addNewFilm(new FilmData("Отель «Белград»", "комедия"));
-        manager.addNewFilm(new FilmData("Джентельмены", "боевик"));
-        manager.addNewFilm(new FilmData("Человек-невидимка", "ужасы"));
-        manager.addNewFilm(new FilmData("Тролли. Мировой тур", "мультфильм"));
-        manager.addNewFilm(new FilmData("Номер один", "комедия"));
+        FilmData poster1 = new FilmData("Бладшот", "боевик");
+        FilmData poster2 = new FilmData("Вперёд", "мультфильм");
+        FilmData poster3 = new FilmData("Отель «Белград»", "комедия");
+        FilmData poster4 = new FilmData("Джентельмены", "боевик");
+        FilmData poster5 = new FilmData("Человек-невидимка", "ужасы");
+        FilmData poster6 = new FilmData("Тролли. Мировой тур", "мультфильм");
+        FilmData poster7 = new FilmData("Номер один", "комедия");
 
-        FilmData[] films = manager.findLast();
+        manager.addNewFilm(poster1);
+        manager.addNewFilm(poster2);
+        manager.addNewFilm(poster3);
+        manager.addNewFilm(poster4);
+        manager.addNewFilm(poster5);
+        manager.addNewFilm(poster6);
+        manager.addNewFilm(poster7);
 
-        Assertions.assertEquals(films.length, 5);
+        FilmData[] expected = {poster7, poster6, poster5, poster4, poster3};
+        FilmData[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void checkPosterManagerFilmAddingAndFindLast2() {
         FilmsPosterManager manager = new FilmsPosterManager();
 
-        manager.addNewFilm(new FilmData("Тролли. Мировой тур", "мультфильм"));
-        manager.addNewFilm(new FilmData("Номер один", "комедия"));
+        FilmData poster6 = new FilmData("Тролли. Мировой тур", "мультфильм");
+        FilmData poster7 = new FilmData("Номер один", "комедия");
 
-        FilmData[] films = manager.findLast();
+        manager.addNewFilm(poster6);
+        manager.addNewFilm(poster7);
 
-        Assertions.assertEquals(films.length, 2);
+        FilmData[] expected = {poster7, poster6};
+        FilmData[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
