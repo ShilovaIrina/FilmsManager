@@ -17,26 +17,22 @@ public class FilmsPosterManager {
     }
 
     public void addNewFilm(FilmData film) {
-        FilmData[] tmp_films;
+        FilmData[] tmpFilms;
         if (films == null) {
-            tmp_films = new FilmData[1];
-            tmp_films[0] = film;
+            tmpFilms = new FilmData[1];
+            tmpFilms[0] = film;
         } else {
-            tmp_films = new FilmData[films.length + 1];
+            tmpFilms = new FilmData[films.length + 1];
             for (int i = 0; i < films.length; i++) {
-                tmp_films[i] = films[i];
+                tmpFilms[i] = films[i];
             }
-            tmp_films[films.length] = film;
+            tmpFilms[films.length] = film;
         }
 
-        films = tmp_films;
+        films = tmpFilms;
     }
 
     public FilmData[] findAll() {
-        System.out.println("displaying " + films.length + " films:");
-        for (int i = 0; i < films.length; i++) {
-            System.out.println("film name: " + films[i].getFilmName() + "\nfilm genre: " + films[i].getFilmGenre() + "\n");
-        }
         return films;
     }
 
@@ -50,10 +46,6 @@ public class FilmsPosterManager {
         FilmData[] outputArray = new FilmData[realOutputNumber];
         for (int i = 0; i < realOutputNumber; i++) {
             outputArray[i] = films[films.length - i - 1];
-        }
-        System.out.println("displaying " + realOutputNumber + " films:");
-        for (int i = 0; i < realOutputNumber; i++) {
-            System.out.println("film name: " + outputArray[i].getFilmName() + "\nfilm genre: " + outputArray[i].getFilmGenre() + "\n");
         }
         return outputArray;
     }
